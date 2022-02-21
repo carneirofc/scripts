@@ -1,5 +1,9 @@
 # Destination directory
-DEST_DIR = /usr/local/bin
+DEST_DIR ?= /usr/local/bin
+
+ifneq ($(CONDA_PREFIX),)
+	DEST_DIR = $(CONDA_PREFIX)/bin
+endif
 
 GENERALSCRIPTS = \
 		sirius-script-utils.bash \
